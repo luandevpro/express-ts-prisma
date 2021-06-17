@@ -1,11 +1,9 @@
-import express from "express";
+import "dotenv/config";
 
-const app = express();
+import App from "./app";
 
-app.get("/", (request, response) => {
-  response.send("Hello world!");
-});
+import Homeontroller from "./controller/home/home.controller";
 
-app.listen(5000, () => {
-  console.log("run server success");
-});
+const app = new App([new Homeontroller()]);
+
+app.listen();
